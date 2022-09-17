@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link rel="stylesheet" href="./style.css">
+    <title> muneco</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header" id="header">
+            <div class="logo">logo</div>
+        </div>
+
+        <div class="juego" id="pantallaJuego" >
+            <div id="areaDibujo" class="areaDibujo">
+                <!-- canvas-->
+                <canvas  class="canvasAhorcado" id="ahorcado" width="1000" height="600" ></canvas>
+            </div>
+
+            <div class="teclado">
+               <div class="teclas"></div>
+            </div>
+
+            <div class="menu-juego">
+                <div id="div-desaparece" class="botones-home main">
+                    <a href="#forca">
+                        <input class="btn btn-iniciar" type="text" value="Iniciar juego" id="Reiniciar" onclick="">
+                    </a>
+                    <a href="#reiniciar">
+                        <input class="btn btn-iniciar reiniciar" type="text" value="Reiniciar" id="desistir" onclick="">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section class="ganaste">
+            <div class="">
+                <a href="#reiniciar">
+                    <input class="btn btn-iniciar reiniciar" type="text" value="Reiniciar Juego" id="desistir" onclick="reiniciar()">
+                </a>
+            </div>
+        </section>
+
+
+    </div>
+
+    <script src="./canvas.js"></script>
+</body>
+</html>

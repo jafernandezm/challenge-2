@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link rel="stylesheet" href="./style.css">
+    <title>Juego Ahorcado</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header" id="header">
+            <div class="logo">logo</div>
+        </div>
+
+        <section class="inicio" id="inicio">
+            <div id="pantalla-inicio" class="pantalla-inicio">
+                <a>
+                    <input class="btn btn-inicio" type="button" value="Iniciar juego" id="Iniciar-Juego">
+                </a>
+                <a>
+                    <input class="btn btn-inicio" type="button" value="Anadir palabra" id="Anadir">
+                </a>
+            </div>
+        </section>
+
+        <div class="juego" id="pantallaJuego" >
+            <div id="areaDibujo" class="areaDibujo">
+                <!-- canvas-->
+                <canvas  class="canvasAhorcado" id="ahorcado" width="1000" height="600" ></canvas>
+            </div>
+
+            <div class="teclado">
+               <div class="teclas"></div>
+            </div>
+
+            <div class="menu-juego">
+                <div id="div-desaparece" class="botones-home main">
+                    <a href="#1">
+                        <input class="btn btn-reiniciar" type="button" value="Reiniciar partida" id="reiniciar" >
+                    </a>
+                    <a href="#reiniciar">
+                        <input class="btn btn-desistir desistir" type="button" value="desistir" id="desistir">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="ganaste">
+            <div class="">
+                <a href="#">
+                    <input class="btn btn-iniciar reiniciar" type="button" value="Reiniciar Juego" id="desistir" >
+                </a>
+            </div>
+        </section>
+
+
+    </div>
+
+    <script src="./canvas.js"></script>
+    <script src="./index.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
