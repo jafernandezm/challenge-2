@@ -1,13 +1,20 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
     box-sizing: border-box;
-    background:#061124;
+    vertical-align: baseline;
+}
+
+body{
+    min-height: 100vh;
+    background: #1D4350;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A43931, #1D4350);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .container{
-    width: 1200px;
-    min-height: 700px;
+    width:100%;
     margin: auto;
     display: flex;
     flex-flow: column wrap;
@@ -23,7 +30,6 @@
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-   
 }
 
 .inicio{
@@ -46,24 +52,57 @@
     justify-content: center;
     align-items: center;
 }
-.inicio .btn-inicio{
-    height: 100%;
-    width: 100%;
-    background: darkcyan;
-    font-size: 33px;
-    border-radius: 40px;
 
+.h3{
+    color: #dddddd;
+    font-size: 5em;
+    text-align: center;
+    margin: auto 10px 0.1em;
+    
+}
+.tipos-contenedor{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.p{
+    color:white;
+    font-size: 35px;
+    align-items: center;
+    justify-items: center;
+
+}
+.select{
+    width: 80%;
+    margin: 1em 1em;
+    padding: 20px 12px;
+    color: #000000;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    font-size: 30px;
+
+}
+option{
+    background: white;
 }
 
 .btn{
-    padding: 2em;
-    margin: 1em;
-    border-radius: 20px;
-    background: white;
+    text-decoration: none;
+ 
+    height: 4em;
+    width: 10em;
+    padding: 1.2em;
+    margin: 0.8em ;
+    border-radius: 40px;
+    background: darkcyan;
+    font-size: 33px;
+    align-items: center;
     text-align: center;
+   
 }
-
-
 
 .juego{
     width: 100%;
@@ -74,15 +113,20 @@
     justify-content: center;
     
 }
+.canvasAhorcado{
+    width:1000px;
+    height:600px;
 
+    border: 3px solid black;
+    border-radius: 20px;
+}
 
 
 
 .teclado{
     width: 100%;
     height: 80%;
-
-
+    margin: 1em;
     align-items: center;
     justify-content: center;
     /*background: rgb(60, 184, 19);*/
@@ -95,18 +139,17 @@
     align-items: center;
     justify-content: center;
     padding: 0 1%;
-  
-  
     margin: auto;
 }
 .tecla{
     padding:10px 20px;
     margin: 0.2em;
     border-radius: 20px;
-    background: white;
+   
     text-align: center;
     font-size: 25px;
-    background: #f0f0f0f0;
+    
+    background-color: rgb(245, 203, 203);
 }
 
 
@@ -117,4 +160,28 @@
 
 .ganaste{
     display: none;
+}
+
+.tipo-anadir{
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px;
+    margin: auto;
+    display: none;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.texto-anadir{
+    margin: 1.5em;
+    padding: 15px 15px;
+    width: 50%;
+    font-size: 30px;
+    
+}
+@media screen and (max-width:1200) {
+    .container{
+        width: 800px;
+    }
 }

@@ -11,17 +11,29 @@
 <body>
     <div class="container">
         <div class="header" id="header">
-            <div class="logo">logo</div>
+            <div class="logo">
+                <img src="./img/Vector.png" alt="">
+            </div>
         </div>
 
         <section class="inicio" id="inicio">
+            <h3 class="h3">Juego del Ahorcado</h3>
             <div id="pantalla-inicio" class="pantalla-inicio">
                 <a>
                     <input class="btn btn-inicio" type="button" value="Iniciar juego" id="Iniciar-Juego">
                 </a>
                 <a>
-                    <input class="btn btn-inicio" type="button" value="Anadir palabra" id="Anadir">
+                    <input class="btn btn-inicio" type="button" value="Anadir palabra" id="Anadir" onclick="anadirPalabra();">
                 </a>
+                
+                <div class="tipos-contenedor">
+                    <p class="p">Selecciona el Tipo de juego</p>
+                    <select class="select " name="tipo" id="tipo" onchange="eleccionJuego()" >
+                        <option value="Frutas">Frutas</option>
+                        <option value="Musica">Musica</option>
+                        <option value="ObjetosCasa">Objetos Casa</option>
+                    </select>
+                </div>
             </div>
         </section>
 
@@ -37,12 +49,9 @@
 
             <div class="menu-juego">
                 <div id="div-desaparece" class="botones-home main">
-                    <a href="#1">
-                        <input class="btn btn-reiniciar" type="button" value="Reiniciar partida" id="reiniciar" >
-                    </a>
-                    <a href="#reiniciar">
-                        <input class="btn btn-desistir desistir" type="button" value="desistir" id="desistir">
-                    </a>
+                    <input class="btn btn-reiniciar" type="button" value="Reiniciar partida" id="reiniciar">
+                    <input class="btn btn-desistir desistir" type="button" value="Volver al Inicio" id="volver">
+            
                 </div>
             </div>
 
@@ -56,7 +65,18 @@
             </div>
         </section>
 
+        <section class="tipo-anadir" id="tipo-anadir">
+            <input type="text" class="texto-anadir" id="texto-anadir" placeholder="Escribe una palabra para añadir">
+            <p class="p">Min. de 3 letras y Máx. de 8 letras</p> 
+            <div>
+                <input type="button" value="Guardar" class="btn" id="anadir">
+                <input type="button" value="cancelar" class="btn" onclick="btnCancelar()">
+            </div>
+        </section>
 
+        <footer class="footer">
+            <p class="copy">©Copyrigth One Oracle + Alura Latan - 2022</p>
+        </footer>
     </div>
 
     <script src="./canvas.js"></script>

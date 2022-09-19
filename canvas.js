@@ -33,48 +33,45 @@ function dibujarCanvas(){
     tablero.lineWidth=8;
     tablero.lineCap="round";
     tablero.lineJoin="round";
-    //tablero.fillStyle="#F3F5F6";
+    //opasidad
+    tablero.globalAlpha=0.1;
     tablero.fillStyle="#061124" 
     tablero.strokeStyle="#8A387";
-    //tablero.fillRect(0,0,1200,860);
     tablero.fillRect(0,0,ancho,alto);
     tablero.beginPath();
-
      //linea
     //tablero.moveTo(650 , 500);
     tablero.moveTo(anchoMitad , altoMitad);
     tablero.lineTo(moverX,altoMitad);
-  
     tablero.stroke();
     tablero.closePath();
+    dibujarLinea();
     
-    //dibujarLetras(this);
-   
 }
 
 function dibujarLinea(){
+    tablero.globalAlpha=1;
     tablero.lineWidth=6;
     tablero.lineCap="round";
     tablero.lineJoin="round";
     //tablero.fillStyle="#F3F5F6";
     tablero.fillStyle="#8A387";
     tablero.strokeStyle="#00FF00";
-
- 
-
     let anchura= 600/palabraSecreta.length;
     for(let i=0; i< palabraSecreta.length; i++){
         tablero.moveTo(letrasPosicionX + (anchura*i), letrasPosicionY );
         tablero.lineTo(letrasPosicionX+50 + (anchura*i), letrasPosicionY );
         //
     }
-    
+  
     tablero.stroke();
     tablero.closePath();
+
+  
 }
 
 function dibujarLetras(letra){
-    
+    tablero.beginPath();
     tablero.lineWidth=6;
     tablero.lineCap="round";
     tablero.lineJoin="round";
@@ -89,29 +86,38 @@ function dibujarLetras(letra){
         tablero.fillText(palabraSecreta[i], letrasPosicionX + (anchura*i), letrasPosicionY-10);
         ganador[i]=palabraSecreta[i];
         //console.log(ganador[]);
-        }
+      
+        } 
+
     }
-
-
     Ganaste();
    
-    //tablero.fillText( ganador, 40, 40);
-    //console.log(ganador);
-    tablero.fillText("Juego del Ahorcado", 40, 40);
-    tablero.font="30px Arial";
-    tablero.fillText("vidas :"+vidas,90,90)
+    tablero.stroke();
+    tablero.closePath();
+    textoIntro();
 
     
 }
-
+function textoIntro(){
+    
+    tablero.beginPath();
+    tablero.strokeStyle="#000000";
+    tablero.fillStyle="#000000";
+    tablero.font = "50px Verdana";
+    tablero.fillText("Juego del Ahorcado", 50, 50);
+    tablero.font="30px Arial";
+    tablero.fillText('vidas \u{2764} :'+vidas,90,90);
+    tablero.stroke();
+    tablero.closePath();
+}
 function puntaje(){
-    tablero.clearRect(160,60,180,100)
+    tablero.clearRect(210,62,20,30)
 }
 
 
 
 function lineaArriba(){
-    
+    tablero.beginPath();
     tablero.lineWidth= 20;
     tablero.lineCap= "round";
     tablero.lineJoin="round";
@@ -126,6 +132,7 @@ function lineaArriba(){
 }
 
 function lineaMedio(){
+    tablero.beginPath();
     tablero.lineWidth= 15;
     tablero.lineCap= "round";
     tablero.lineJoin="round";
@@ -140,6 +147,7 @@ function lineaMedio(){
     tablero.closePath();
 }
 function soga(){
+    tablero.beginPath();
     tablero.lineWidth= 7;
     tablero.lineCap= "round";
     tablero.lineJoin="round";
