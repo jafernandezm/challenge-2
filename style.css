@@ -7,9 +7,7 @@
 }
 
 body{
-    
-    background: #1D4350;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #A43931, #1D4350);  /* Chrome 10-25, Safari 5.1-6 */
+  
     background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -212,10 +210,14 @@ option{
         height: 400px;
     }
 }
-
-@media screen and (max-width:800px) {
+@media only screen and (min-width: 200px) and (max-width: 800px) {
+    body{
+  
+        background: linear-gradient( #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
     .container{
         width: 100%;
+        height: 100%;
     }
     #ahorcado{
         width: 400px;
@@ -249,5 +251,4 @@ option{
 
         flex-flow: column;
     }
-    
 }
