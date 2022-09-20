@@ -12,6 +12,9 @@ let palabraNueva=document.getElementById("texto-anadir")
 //palabras
 //let palabras=['ALURA','ORACLE','ONE','JAVASCRIPT','AHORCADO','MANZANA','PLATANO'];
 
+
+
+
 let palabras={
     Frutas: [
         'MANZANA','PLATANO','DURAZNO','MELON','SANDIA'
@@ -105,6 +108,7 @@ function iniciarJuego(){
     escojerPalabraSecreta();
 
     generarBtnletras();
+    
     dibujarCanvas();
     textoIntro();
    

@@ -7,14 +7,16 @@
 }
 
 body{
-    min-height: 100vh;
+    
     background: #1D4350;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #A43931, #1D4350);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .container{
-    width:100%;
+    width:1200px;
+    
+    min-height: 400px;
     margin: auto;
     display: flex;
     flex-flow: column wrap;
@@ -24,14 +26,18 @@ body{
 
 .header{
     width: 95%;
-    padding: 1em 2em;
+    padding: 1em 1em;
     margin: 1em 1em; 
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
 }
-
+.imglogo{
+    height: 2.5em;
+    max-width: 100%;
+    width: 100%;
+}
 .inicio{
     width: 100%;
     height: 100%;
@@ -90,8 +96,6 @@ option{
 }
 
 .btn{
-    text-decoration: none;
- 
     height: 4em;
     width: 10em;
     padding: 1.2em;
@@ -99,9 +103,6 @@ option{
     border-radius: 40px;
     background: darkcyan;
     font-size: 33px;
-    align-items: center;
-    text-align: center;
-   
 }
 
 .juego{
@@ -113,9 +114,22 @@ option{
     justify-content: center;
     
 }
-.canvasAhorcado{
+
+.areaDibujo{
     width:1000px;
-    height:600px;
+    height:500px;
+    background: darkblue;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#ahorcado{
+    width:1000px;
+    height:500px;
+ 
 
     border: 3px solid black;
     border-radius: 20px;
@@ -155,6 +169,9 @@ option{
 
 .menu-juego{
     display:flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -180,8 +197,58 @@ option{
     font-size: 30px;
     
 }
-@media screen and (max-width:1200) {
+
+
+@media screen and (max-width:1200px) {
     .container{
         width: 800px;
     }
+    #ahorcado{
+        width: 700px;
+        height: 400px;
+    }
+    .areaDibujo{
+        width: 700px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .container{
+        width: 400px;
+    }
+    #ahorcado{
+        width: 400px;
+        height: 300px;
+    }
+    .areaDibujo{
+        width: 400px;
+        height: 300px;
+    }
+
+    .teclado{
+        width: 100%;
+        height: 80%;
+  
+    }
+    .teclado .teclas{
+        width:100%;
+        height:100%;
+     
+    }
+    .tecla{
+        padding:5px 10px;
+        margin: 0.2em;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+    .btn{
+        font-size: 22px;
+      
+    }
+    .menu-juego{
+
+        flex-flow: column;
+    }
+    
 }

@@ -1,6 +1,9 @@
 let tablero = document.getElementById("ahorcado").getContext('2d');
-let ancho =document.getElementById("ahorcado").clientWidth;
-let alto =document.getElementById("ahorcado").clientHeight;
+let pantalla=document.getElementById("areaDibujo");
+tablero.width = pantalla.offsetWidth;
+tablero.height =  pantalla.offsetHeight;
+let ancho =tablero.width;
+let alto = tablero.height;
 //mitades
 let anchoMitad=ancho/2;
 let altoMitad=alto/1.5;
@@ -27,7 +30,9 @@ var posYcuerpo=cuerpoY+(cuerpoY/1.5)
 //manos
 
 //dibujarCanvas();
-
+function start(){
+    
+}
 function dibujarCanvas(){
     
     tablero.lineWidth=8;
