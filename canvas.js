@@ -2,8 +2,12 @@ let tablero = document.getElementById("ahorcado").getContext('2d');
 let pantalla=document.getElementById("areaDibujo");
 tablero.width = pantalla.offsetWidth;
 tablero.height =  pantalla.offsetHeight;
-let ancho =tablero.width;
-let alto = tablero.height;
+
+let ancho =  1000;
+let alto = 600;
+
+console.log(ancho)
+console.log(alto)
 //mitades
 let anchoMitad=ancho/2;
 let altoMitad=alto/1.5;

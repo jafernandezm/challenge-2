@@ -201,7 +201,7 @@ option{
 
 @media screen and (max-width:1200px) {
     .container{
-        width: 800px;
+        width: 100%;
     }
     #ahorcado{
         width: 700px;
@@ -215,7 +215,7 @@ option{
 
 @media screen and (max-width:800px) {
     .container{
-        width: 400px;
+        width: 100%;
     }
     #ahorcado{
         width: 400px;
@@ -227,20 +227,19 @@ option{
     }
 
     .teclado{
-        width: 100%;
+        width: 80%;
         height: 80%;
   
     }
     .teclado .teclas{
         width:100%;
         height:100%;
-     
     }
     .tecla{
-        padding:5px 10px;
+        padding:10px 15px;
         margin: 0.2em;
         border-radius: 20px;
-        font-size: 15px;
+        font-size: 18px;
     }
     .btn{
         font-size: 22px;
