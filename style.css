@@ -116,8 +116,7 @@ option{
 .areaDibujo{
     width:1000px;
     height:500px;
-    background: darkblue;
-
+   
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
@@ -216,6 +215,10 @@ option{
         width: 400px;
         height: 300px;
     }
+    .areaDibujo{
+        width: 400px;
+        height: 300px;
+    }
     .h3{
         font-size: 4em;
     }
@@ -226,10 +229,7 @@ option{
         width: 60%;
         height: 40%;
     }
-    .areaDibujo{
-        width: 400px;
-        height: 300px;
-    }
+    
 
     .teclado{
         width: 80%;
@@ -254,4 +254,27 @@ option{
 
         flex-flow: column;
     }
+}
+
+@media screen and (max-width: 400px) {
+    
+    #ahorcado{
+        width: 300px;
+        height: 250px;
+    }
+    .areaDibujo{
+        width: 300px;
+        height: 250px
+    }
+    .h3{
+        font-size: 4em;
+    }
+    .p{
+        font-size: 20px;
+    }
+    .select{
+        width: 60%;
+        height: 40%;
+    }
+    
 }
