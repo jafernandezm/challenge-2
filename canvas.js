@@ -12,8 +12,8 @@ console.log(alto)
 let anchoMitad=ancho/2;
 let altoMitad=alto/1.5;
 //posiciones letras
-let letrasPosicionY=alto-(alto/12);
-let letrasPosicionX=altoMitad/2.2;
+let letrasPosicionY=alto-(alto/11);
+let letrasPosicionX=altoMitad/2.4;
 let moverX=anchoMitad+(anchoMitad/1.5)
 //lineas
 let posicionX=anchoMitad+(anchoMitad/7);
@@ -47,25 +47,49 @@ function dibujarCanvas(){
     tablero.fillStyle="#061124" 
     tablero.strokeStyle="#8A387";
     tablero.fillRect(0,0,ancho,alto);
-    tablero.beginPath();
-     //linea
-    //tablero.moveTo(650 , 500);
-    tablero.moveTo(anchoMitad , altoMitad);
-    tablero.lineTo(moverX,altoMitad);
     tablero.stroke();
     tablero.closePath();
-    dibujarLinea();
+
+
+    medio("black",30);
+    medio("#6E2C00",15);
+    
+    dibujarLinea( "black" ,10);
+    dibujarLinea("#6E2C00" ,5);
     
 }
-
-function dibujarLinea(){
+function medio(color,anchura){
     tablero.globalAlpha=1;
-    tablero.lineWidth=6;
+   
+
+    tablero.lineWidth=anchura;
     tablero.lineCap="round";
     tablero.lineJoin="round";
-    //tablero.fillStyle="#F3F5F6";
-    tablero.fillStyle="#8A387";
-    tablero.strokeStyle="#00FF00";
+    tablero.fillStyle=color 
+    tablero.strokeStyle=color;
+
+    tablero.beginPath();
+    //linea
+   //tablero.moveTo(650 , 500);
+   tablero.moveTo(anchoMitad , altoMitad);
+   tablero.lineTo(moverX,altoMitad);
+
+   tablero.stroke();
+   tablero.closePath();
+
+}
+
+
+function dibujarLinea(color,letraanchura){
+   
+
+    tablero.beginPath();
+    tablero.lineWidth=letraanchura;
+
+
+    tablero.fillStyle=color;
+    tablero.strokeStyle=color;
+    
     let anchura= 600/palabraSecreta.length;
     for(let i=0; i< palabraSecreta.length; i++){
         tablero.moveTo(letrasPosicionX + (anchura*i), letrasPosicionY );
@@ -84,9 +108,11 @@ function dibujarLetras(letra){
     tablero.lineWidth=6;
     tablero.lineCap="round";
     tablero.lineJoin="round";
-    tablero.fillStyle="rgb(24, 243, 243)";
+    tablero.fillStyle="white";
     tablero.strokeStyle="#00FF00";
     
+
+
     tablero.font = "50px Verdana";
     let anchura= 600/palabraSecreta.length;
     tablero.beginPath();
@@ -99,8 +125,13 @@ function dibujarLetras(letra){
         } 
 
     }
+
+
+
+
+
     Ganaste();
-   
+       tablero.fill();
     tablero.stroke();
     tablero.closePath();
     textoIntro();
@@ -125,43 +156,44 @@ function puntaje(){
 
 
 
-function lineaArriba(){
-    tablero.beginPath();
-    tablero.lineWidth= 20;
+function lineaArriba(color, letraAnchura){
+    tablero.lineWidth= letraAnchura;
     tablero.lineCap= "round";
     tablero.lineJoin="round";
-    tablero.strokeStyle="maroon"
+    tablero.strokeStyle=color;
     
     tablero.beginPath();
-    tablero.lineWidth=12;
-    tablero.moveTo(posicionX , altoMitad);
+    tablero.moveTo(posicionX , altoMitad-12);
     tablero.lineTo(posicionX , posicionY);
     tablero.stroke();
     tablero.closePath();
+
 }
 
-function lineaMedio(){
+function lineaMedio(color, letraAnchura){
     tablero.beginPath();
-    tablero.lineWidth= 15;
+    tablero.lineWidth= letraAnchura;
     tablero.lineCap= "round";
     tablero.lineJoin="round";
-    tablero.strokeStyle="maroon"
+    tablero.strokeStyle=color
 
 
     tablero.beginPath();
-    tablero.lineWidth=10;
     tablero.moveTo(posicionX , posicionY);
     tablero.lineTo(posicionXavanzando , posicionY);
     tablero.stroke();
     tablero.closePath();
+
+
+   
 }
-function soga(){
+function soga(color,letraAnchura){
     tablero.beginPath();
-    tablero.lineWidth= 7;
+    tablero.lineWidth= letraAnchura;
     tablero.lineCap= "round";
     tablero.lineJoin="round";
-    tablero.fillStyle="yellow";
-    tablero.strokeStyle="yellow";
+    tablero.fillStyle=color;
+    tablero.strokeStyle=color;
 
     tablero.moveTo(posicionXavanzando , posicionY);
     tablero.lineTo(posicionXavanzando , poscionYavanzaCabeza);
@@ -213,11 +245,12 @@ function cabeza(){
 
 
 
-function cuerpo(){
-	
+function cuerpo(color ,letraAnchura){
+    //tablero.lineWidth= 10;
+    //tablero.strokeStyle="#00FF00";
     //cuerpo
-    tablero.lineWidth= 10;
-    tablero.strokeStyle="#00FF00";
+    tablero.lineWidth= letraAnchura;
+    tablero.strokeStyle= color;
     tablero.moveTo(cuerpoX  , cuerpoY);
     tablero.lineTo(cuerpoX , posYcuerpo);
     tablero.stroke();
@@ -227,98 +260,109 @@ function cuerpo(){
     tablero.lineWidth= 15;
     tablero.lineCap= "round";
     tablero.lineJoin="round";
-    tablero.fillStyle="yellow";
-    tablero.strokeStyle="yellow";
+    tablero.fillStyle="#00FF00";
+    tablero.strokeStyle="#000000";
+    tablero.moveTo(cuerpoX , cuerpoY);
+    tablero.lineTo(cuerpoX , cuerpoY+5);
+    tablero.stroke();
+    tablero.closePath();
+
+    tablero.beginPath();
+    tablero.lineWidth= 10;
+    tablero.lineCap= "round";
+    tablero.lineJoin="round";
+    //tablero.fillStyle="#00FF00";
+    tablero.strokeStyle="#ece2c6";
     tablero.moveTo(cuerpoX , cuerpoY);
     tablero.lineTo(cuerpoX , cuerpoY+5);
     tablero.stroke();
     tablero.closePath();
 
 }
-function manoIzquierda(){
+function manoIzquierda(color ,letraAnchura){
     tablero.beginPath();
-    tablero.lineWidth= 8;
-    tablero.strokeStyle="#00FF00";
-    var manoIzquierdaX=cuerpoX-(cuerpoX/30)
+    tablero.lineWidth= letraAnchura;
+    tablero.strokeStyle=color;
+    var manoIzquierdaX=cuerpoX-(cuerpoX/32)
     var manoIzquierdaY=cuerpoY+(posYcuerpo/6)
-    tablero.moveTo(cuerpoX , manoIzquierdaY);
+    tablero.moveTo(cuerpoX-5 , manoIzquierdaY);
     tablero.lineTo(manoIzquierdaX, manoIzquierdaY+50);
     tablero.stroke();
     tablero.closePath();
 
 }
-function manoDerecha(){
+function manoDerecha(color ,letraAnchura){
     tablero.beginPath();
-    tablero.lineWidth= 8;
-    tablero.strokeStyle="#00FF00";
+    tablero.lineWidth= letraAnchura;
+    tablero.strokeStyle=color;
     var manoIzquierdaX=cuerpoX+(cuerpoX/30)
     var manoIzquierdaY=cuerpoY+(posYcuerpo/6)
  
-    tablero.moveTo(cuerpoX , manoIzquierdaY);
+    tablero.moveTo(cuerpoX+5 , manoIzquierdaY);
     tablero.lineTo(manoIzquierdaX, manoIzquierdaY+50);
     tablero.stroke();
     tablero.closePath();
 
 }
 
-function piernasIzquierda(){
+function piernasIzquierda(color ,letraAnchura){
     var manoIzquierdaY=posYcuerpo;
     var manoIzquierdaX=cuerpoX-2;
     var posYpiernas=manoIzquierdaY+(manoIzquierdaY/10)
-    tablero.lineWidth= 8;
+    tablero.lineWidth= letraAnchura;
     tablero.lineCap= "round";
     tablero.lineJoin="round";
-    tablero.strokeStyle="#00FF00";
+    tablero.strokeStyle=color;
     
 
     tablero.beginPath()
 
-    tablero.moveTo(cuerpoX , manoIzquierdaY);
-    tablero.lineTo(cuerpoX-5, manoIzquierdaY+5);
+    tablero.moveTo(cuerpoX-5 , manoIzquierdaY+2);
+    tablero.lineTo(cuerpoX-10, manoIzquierdaY+5);
     tablero.stroke();
     tablero.closePath();
 
     tablero.beginPath()
 
-    tablero.moveTo(cuerpoX-5 , manoIzquierdaY+5);
-    tablero.lineTo(manoIzquierdaX-10, manoIzquierdaY+60);
+    tablero.moveTo(cuerpoX-10 , manoIzquierdaY+5);
+    tablero.lineTo(manoIzquierdaX-15, manoIzquierdaY+60);
     tablero.stroke();
     tablero.closePath();
 
     tablero.beginPath()
 
-    tablero.moveTo(manoIzquierdaX-10 , manoIzquierdaY+60);
-    tablero.lineTo(manoIzquierdaX-20, manoIzquierdaY+68);
+    tablero.moveTo(manoIzquierdaX-15 , manoIzquierdaY+60);
+    tablero.lineTo(manoIzquierdaX-25, manoIzquierdaY+68);
     tablero.stroke();
     tablero.closePath();
 }
-function piernasDerechas(){
+function piernasDerechas(color ,letraAnchura){
     var manoIzquierdaY=posYcuerpo;
     var manoIzquierdaX=cuerpoX+2
     
-    tablero.lineWidth= 8;
+    tablero.lineWidth= letraAnchura;
     tablero.lineCap= "round";
     tablero.lineJoin="round";
-    tablero.strokeStyle="#00FF00";
+    tablero.strokeStyle=color;
 
     tablero.beginPath()
 
-    tablero.moveTo(cuerpoX , manoIzquierdaY);
-    tablero.lineTo(cuerpoX+5, manoIzquierdaY+5);
+    tablero.moveTo(cuerpoX+5 , manoIzquierdaY+2);
+    tablero.lineTo(cuerpoX+10, manoIzquierdaY+5);
     tablero.stroke();
     tablero.closePath();
 
 
     tablero.beginPath()
 
-    tablero.moveTo(cuerpoX+5 , manoIzquierdaY+5);
-    tablero.lineTo(manoIzquierdaX+10, manoIzquierdaY+60);
+    tablero.moveTo(cuerpoX+10 , manoIzquierdaY+5);
+    tablero.lineTo(manoIzquierdaX+15, manoIzquierdaY+60);
     tablero.stroke();
     tablero.closePath();
 
     tablero.beginPath()
 
-    tablero.moveTo(manoIzquierdaX+10 , manoIzquierdaY+60);
+    tablero.moveTo(manoIzquierdaX+15 , manoIzquierdaY+60);
     tablero.lineTo(manoIzquierdaX+20, manoIzquierdaY+68);
     tablero.stroke();
     tablero.closePath();

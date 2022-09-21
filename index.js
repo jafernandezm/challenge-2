@@ -177,22 +177,31 @@ function verificar(btnLetra){
       
      
         switch(contador){
-            case 1: lineaArriba();
-                    lineaMedio();
+            case 1: lineaArriba("black",20);
+                    lineaArriba("#6E2C00",15);
+                    lineaMedio("black",15);
+                    lineaMedio("#6E2C00",10);
             break;
-            case 2: soga()
+            case 2: soga("#000000",10)
+                    soga("#ece2c6",5)
             break;
             case 3: cabeza();
             break;  
-            case 4: cuerpo();
+            case 4:  cuerpo("#000000",12);
+                     cuerpo("#00FF00",5);
+                   
             break;
-            case 5: manoIzquierda();
+            case 5: manoIzquierda("#000000",10);
+                    manoIzquierda("#00FF00",5);
             break;
-            case 6: manoDerecha()
+            case 6: manoDerecha("#000000",10)
+                    manoDerecha("#00FF00",5)
             break;
-            case 7: piernasIzquierda();
+            case 7: piernasIzquierda("#000000",10);
+                    piernasIzquierda("#00FF00",5);
             break;
-            case 8: piernasDerechas()
+            case 8: piernasDerechas("#000000",10)
+                    piernasDerechas("#00FF00",5)
             break;
         }
     }
