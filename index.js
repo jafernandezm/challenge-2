@@ -79,6 +79,12 @@ btnAnadir.addEventListener('click', () => {
     palabraNueva.value="";
 });
 
+document.getElementById("oculto").focus();
+
+
+
+
+
 escojerPalabraSecreta();
 //palabra secreta
 function escojerPalabraSecreta(){
