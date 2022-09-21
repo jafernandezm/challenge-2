@@ -133,7 +133,7 @@ function iniciarJuego(){
     textoIntro();
    
     let contador=palabraSecreta.length;
-    duda.innerHTML="La palabra tiene :"+contador;
+    duda.innerHTML="La palabra tiene : "+contador +" letras";
    
 }
 
