@@ -108,7 +108,7 @@ function dibujarLetras(letra){
     tablero.lineWidth=6;
     tablero.lineCap="round";
     tablero.lineJoin="round";
-    tablero.fillStyle="white";
+    tablero.fillStyle="black";
     tablero.strokeStyle="#00FF00";
     
 

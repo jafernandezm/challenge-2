@@ -9,21 +9,23 @@ let btnVolver=document.getElementById("volver");
 let pantallaAnadir=document.getElementById("tipo-anadir");
 let btnAnadir=document.getElementById("anadir");
 let palabraNueva=document.getElementById("texto-anadir")
+let duda=document.getElementById("pregunta")
+pregunta
 //palabras
 //let palabras=['ALURA','ORACLE','ONE','JAVASCRIPT','AHORCADO','MANZANA','PLATANO'];
-
-
-
-
 let palabras={
     Frutas: [
-        'MANZANA','PLATANO','DURAZNO','MELON','SANDIA'
+        'MANZANA','PLATANO','DURAZNO','MELON','SANDIA',
+        'FRUTILLA','LIMON','MORA','NARANJAS','UVA',
+        'CEREZAS','MANGO','COCO','KIWI','HIGO','LIMA',
+        'PERA','GUAYABA',
     ],
     Musica:[
-        'JAZZ','ROCK','CUMBIA'
+        'JAZZ','ROCK','CUMBIA','INDI','CLASICA','DISCO','GOSPEL','METAL'
     ],
     ObjetosCasa:[
-        'CAMA','MESA','COCINA'
+        'CAMA','MESA','COCINA','BALCON','JARDIN','PATIO','HORNO'
+        ,'SALON','TECHO','NEVERA','SILLA','VENTANA','ESPEJO'
     ],
 }
 
@@ -38,7 +40,7 @@ let ganador;
 pantallaJuego.style.display = 'none';
 let letrasIncorrectas="";
 let botones=true;
-let tipo=eleccionJuego();
+//let tipo=eleccionJuego();
 //boton Juego
 // evento teclado
 var letra=function(event){
@@ -70,8 +72,19 @@ btnReiniciar.addEventListener('click', () => {
 });
 
 btnVolver.addEventListener('click',()=>{
+    
+    
+
+    vidas=8;
+    contador=0;
+    letrasIncorrectas="";
+    reiniciarTeclas();
+
+    tablero.clearRect(0,0,ancho,alto);
+    tablero.closePath();
     pantallaJuego.style.display = 'none';
     pantallaInicio.style.display = 'flex';
+
 });
 
 btnAnadir.addEventListener('click', () => {
@@ -88,14 +101,14 @@ document.getElementById("oculto").focus();
 escojerPalabraSecreta();
 //palabra secreta
 function escojerPalabraSecreta(){
-    //let tipo=eleccionJuego();
+    let tipo=eleccionJuego();
     let palabra=palabras[tipo][Math.floor(Math.random()* palabras[tipo].length)];
-    console.log(palabra);
+  
     palabraSecreta =palabra;
 
     ganador=new Array(palabraSecreta.length);
 
-    console.log(palabraSecreta);
+  
 
 }
 //Ganaste
@@ -111,6 +124,7 @@ function Ganaste(){
 function iniciarJuego(){
     //funcionalidades
     document.addEventListener('keydown', letra);
+    
     escojerPalabraSecreta();
 
     generarBtnletras();
@@ -118,9 +132,11 @@ function iniciarJuego(){
     dibujarCanvas();
     textoIntro();
    
+    let contador=palabraSecreta.length;
+    duda.innerHTML="La palabra tiene :"+contador;
    
 }
-//Reiniciar
+
 function Reiniciar(){
     tablero.clearRect(0,0,ancho,alto)
     tablero.closePath();
@@ -162,7 +178,7 @@ function btnCorrectos(key){
 function verificar(btnLetra){
     let letra = btnLetra.innerHTML;
     if(vidas>0){
-        console.log(vidas)
+      
         if(!palabraSecreta.includes(letra)){
             btnLetra.style. background= "#FF0000";//rojo
             contador++;
@@ -233,8 +249,11 @@ function eleccionJuego(){
 }
 
 function anadirPalabra(){
+    
     pantallaInicio.style.display = 'none';
     pantallaAnadir.style.display="flex";
+    tipo=eleccionJuego();
+  
 }
 function btnCancelar(){
     pantallaInicio.style.display = 'flex';
@@ -246,7 +265,7 @@ function Guardar(){
         if(palabraN.length > 3  && palabraN.length < 8){
             palabraN=palabraN.toUpperCase();
         palabras[tipo].push(palabraN);
-        console.log(palabras[tipo]);
+     
         swal.fire("Palabra Guardada");
         pantallaAnadir.style.display="none";
         pantallaInicio.style.display = 'flex';

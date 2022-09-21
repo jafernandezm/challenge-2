@@ -118,7 +118,7 @@ option{
     height:500px;
    
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
 }
@@ -131,7 +131,10 @@ option{
     border: 3px solid black;
     border-radius: 20px;
 }
-
+.numletras{
+    margin: 1em 1em;
+    color: whitesmoke;
+}
 
 
 .teclado{
@@ -143,14 +146,14 @@ option{
     /*background: rgb(60, 184, 19);*/
 }
 .teclado .teclas{
-    display: flex;
-    flex-flow: row wrap;
     width:90%;
     height:100%;
+    display: flex;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
     padding: 0 1%;
-    margin: auto;
+    margin: 20px auto;
 }
 .tecla{
     padding:10px 20px;
